@@ -109,6 +109,9 @@ body.organizations_new {
 
 body.sources_new { // /sources/new
 	// @import 'new-source';
+  main #source_form fieldset.inputs legend{
+    margin: auto;
+  }
 }
 
 body.site_index {
