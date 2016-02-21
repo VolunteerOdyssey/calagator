@@ -73,6 +73,27 @@
             </div><!-- .search-box-container -->
         </div><!-- .header-container -->
 
+        <nav role="navigation" class="clearfix">
+          <ul class='app-menu clearfix'>
+          <%= link_to root_path do %>
+              <li class="<%=link_class[:events]%>">Events</li>
+          <% end %>
+          <%= link_to venues_path do %>
+              <li class="<%=link_class[:venues]%>">Venues</li>
+          <% end %>
+          <%= link_to organizations_path do %>
+              <li class="<%=link_class[:organizations]%>">Organizations</li>
+          <% end %>
+
+          <a href="#" class="js-search-button search-calendar">
+              <li class="js-search-button search-calendar">
+                  <%= image_tag('search.svg') %>
+              </li>
+          </a>
+          
+          </ul><!-- .app-menu -->
+        </nav>
+
         <div class='donation-button-container mobile'>
           <%= link_to 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=LTC9GXPZBX5XY', class: 'button button--donate' do %>
           <div class='text-container'>Donate</div>
@@ -83,41 +104,6 @@
         </div>
 
       </header>
-      <nav role="navigation" class="clearfix">
-        <ul class='app-menu clearfix'>
-        <%= link_to root_path do %>
-            <li class="<%=link_class[:events]%>">Events</li>
-        <% end %>
-        <%= link_to venues_path do %>
-            <li class="<%=link_class[:venues]%>">Venues</li>
-        <% end %>
-        <%= link_to organizations_path do %>
-            <li class="<%=link_class[:organizations]%>">Organizations</li>
-        <% end %>
-
-        <%= link_to 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=LTC9GXPZBX5XY', class: 'button button--donate' do %>
-            <li data-tooltip="Make a donation with Paypal">
-                <div class='text-container'>Donate</div>
-                <div class='icon-container'><i class='icon-cc-paypal'></i></div>
-            </li>
-        <% end %>
-          <!-- <li class='<%=link_class[:events]%>'><%= link_to "Events", events_path %></li>
-          <li class='<%=link_class[:venues]%>'><%= link_to "Venues", venues_path %></li>
-          <li class='<%=link_class[:organizations]%>'><%= link_to "Organizations", organizations_path %></li> -->
-        </ul><!-- .app-menu -->
-        <div class='clearfix search-form js-search-form'>
-          <%= form_tag search_events_path, :method => :get do %>
-            <% if request.env["HTTP_USER_AGENT"] && request.env["HTTP_USER_AGENT"].include?("Safari") %>
-              <i class='fa fa-search'></i>
-              <input class='js-search-input' placeholder="Search events" type="text" name="query" value="<%= @query %>" results="5" id="search_field">
-            <% else %>
-              <i class='fa-fa-search'></i>
-              <%= text_field_tag 'query', @query, :id => 'search_field', :placeholder => 'Search events' %>
-            <% end %>
-            <input type="submit" class="button button--submit" value="Search">
-          <% end -%>
-        </div><!-- .search-form -->
-      </nav>
 
       <!-- subnav -->
       <% if current_admin || current_organization %>

@@ -7,26 +7,32 @@ nav {
 	ul {
 		border-left: none;
 		border-right: none;
-		border-bottom: 1px solid #032D47;
+
+		padding-left: 1.333rem;
+		padding-right: 1.333rem;
 	}
 
 	ul.app-menu > a {
-		display: block;
-		float: left;
-		width: 33.333%;
-		text-align: center;
-		padding: 1em;
 
-		background-color: $vo-blue;
-		color: #fff;
-		font-weight: bold;
-		font-size: 1em;
+		display: inline-block;
 
-		border-left: 1px solid $vo_blue_darker;
+		text-align: left;
+
+		color: #19303A;
+		font-weight: 300;
+		font-size: 1rem;
+
+		text-decoration: underline;
+
+		padding-right: 1.666rem;
 	}
 
 	ul.app-menu > a:first-child {
-		border-left: none;
+		padding-left: 0;
+	}
+
+	ul.app-menu > a:last-child {
+		padding-right: 0;
 	}
 
 	a > li {
