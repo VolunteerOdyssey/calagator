@@ -31,16 +31,18 @@
       <% if (events=events_for_date(date,@events)).any? %>
         <ul>
           <% events.first(4).each do |event| %>
-            <li>
-                <% if event.organization.present? %>
-                  <%=link_to(event.organization_title, event.organization, :class => 'organization-name', :target => "_blank") %><br />
-                <% end %>
-                <%= link_to event.title, event, :class => "event-title", :target => "_blank" %>
-                <div class='event-time'>
-                  <span class='event-start-time'><%= event.start_time.strftime("%I:%M %p") %></span> - <span class='event-end-time'><%= event.end_time.strftime("%I:%M %p") %>
-                </span>
-                </div>
-            </li>
+            <%= link_to event do %>
+              <li>
+                  <% if event.organization.present? %>
+                    <span class="organization-name"><%= event.organization_title %></span>
+                  <% end %>
+                  <span class="event-title"><%= event.title %></span>
+                  <div class='event-time'>
+                    <span class='event-start-time'><%= event.start_time.strftime("%I:%M %p") %></span> - <span class='event-end-time'><%= event.end_time.strftime("%I:%M %p") %>
+                  </span>
+                  </div>
+              </li>
+            <% end %>
           <% end %>
         </ul>
 
