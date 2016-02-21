@@ -43,6 +43,7 @@
       <div class='date'>
         <span class="monthname"><%= date.strftime('%b') %></span>
         <span class="daynumber"><%= date.day %></span>
+        <span class="dayofweek"><%= date.strftime('%A') %></span>
         <span class="yearnumber"><%= date.strftime('%Y') %></span>
       </div>
       <% if (events=events_for_date(date,@events)).any? %>
