@@ -63,6 +63,11 @@
       color: #19303A;
   }
 
+  .month-name-container > form {
+      opacity: 0;
+      -webkit-appearance: none;      
+  }
+
   /* Month Name Selector */
   .month-selector {
 
