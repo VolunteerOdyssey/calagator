@@ -37,7 +37,7 @@ header {
     text-align: center;
 
     color: #19759C;
-    
+
     margin-bottom: 1em;
   }
 
@@ -85,26 +85,22 @@ header {
     margin: 0 auto;
   }
 
-  .donation-button-container.mobile {
-    border-top: 1px solid #55646F;
-    border-bottom: 1px solid #21272C;
-  }
-
   .donation-button-container .button.button--donate {
-    height: 36px;
+      display: block;
+      overflow: hidden;
+      height: 2.617924rem;
+      padding-top: 0.618rem;
+      padding-left: 1.333rem;
+      padding-right: 1.333rem;
   }
 
   .donation-button-container .text-container {
-    display: inline;
-    padding: 6px;
-    height: 32px;
-    font-weight: bold;
+    display: inline-block;
+    padding: 0;
   }
   .donation-button-container .icon-container {
-    display: inline;
-    line-height: 32px;
-    padding: 6px;
-    height: 32px;
+    display: inline-block;
+    float: right;
   }
 
   .donation-button-container.desktop {
