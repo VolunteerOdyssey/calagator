@@ -25,10 +25,23 @@
           </li>
           <li><%= link_to 'Clone event', clone_event_url(@event) %>
           </li>
-          <li><%= link_to 'Delete event', event_url(@event), {
-              :method => :delete,
-              :confirm => "Are you sure you want to delete this event?"
-          } %>
+          <li>
+            <% if @event.rrule %>
+              <span>
+                Delete
+                <%= link_to 'this event', event_url(@event),
+                  method: :delete,
+                  confirm: "Are you sure you want to delete this event?" %>
+                or
+                <%= link_to 'all events', event_url(@event, delete_all: true),
+                  method: :delete,
+                  confirm: "Are you sure you want to delete all recurrences of this event?" %>
+              </span>
+            <% else %>
+              <%= link_to 'Delete event', event_url(@event),
+                    :method => :delete,
+                    :confirm => "Are you sure you want to delete this event?" %>
+            <% end %>
           </li>
         </ul>
       </div>
