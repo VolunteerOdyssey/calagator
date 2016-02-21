@@ -65,7 +65,7 @@
 
   .month-name-container > form {
       opacity: 0;
-      -webkit-appearance: none;      
+      -webkit-appearance: none;
   }
 
   /* Month Name Selector */
@@ -208,7 +208,7 @@
       display: block;
 
       background-image: url("/assets/file-attachment.svg");
-
+      background-repeat: no-repeat;
       width: 0.618rem;
       height: 0.733rem;
   }
@@ -323,7 +323,7 @@
   }
 }
 
-@media only screen and (min-width: 53.125em) {
+@media only screen and (min-width: 1000px) {
 
   // turn the calendar back into a table.
   .calendar {
@@ -347,7 +347,7 @@
     tr {
       width: 100%;
       overflow: auto; // creating a new context for the floats.
-      border-bottom: 1px solid #1E6596;
+      border-bottom: 1px solid #D5D1D1;
     }
 
     td,
@@ -358,11 +358,16 @@
       width: 14.2857143%;
       width: calc(100% / 7);
 
-      border-right: 1px solid #1E6596;
+      border-right: 1px solid #262B2D;
+    }
+
+    td {
+        border-right: 1px solid #D5D1D1;
+        background-color: #F8F8F8;
     }
 
     tr > th {
-      background-color: #2A2A2A;
+        background-color: #07202A;
       color: #fff;
       padding-top: 1em;
       padding-bottom: 1em;
@@ -416,12 +421,21 @@
     }
 
     .date > .daynumber {
-      color: #2A2A2A;
+      color: #19303A;
+      float: right;
     }
 
     .date {
-      background-color: #DADADA;
+      background-color: #F8F8F8;
       border-bottom: none;
+
+      padding-right: 0.5rem;
+      padding-left: 0.5rem;
+    }
+
+    .date .isToday,
+    .date .dayofweek {
+        display: none;
     }
 
     li {
@@ -435,6 +449,36 @@
       display: none;
     }
 
+    /* Events */
+
+    .Event {
+        margin: 0;
+        padding: 0;
+    }
+
+    .Event--timeEnd,
+    .Event.hasAttachment::before {
+        display: none;
+    }
+
+    .Event--content {
+        padding-right: 0;
+        padding-left: 0.3rem;
+
+        background-color: #EDEEF0
+    }
+
+    .Event:nth-child(even) .Event--content {
+        background-color: #E5E6E6;
+    }
+
+    .Event--time {
+        position: static;
+        top: auto;
+        -webkit-transform: none;
+        transform: none;
+    }
+    /* End Events */
     .event-title {
       font-weight: 400;
     }
