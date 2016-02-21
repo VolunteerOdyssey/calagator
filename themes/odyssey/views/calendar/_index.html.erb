@@ -37,17 +37,6 @@
     $(function() {
       $('td .no-events').parent('td').addClass('no-events');
     });
-
-    // Just testing.
-    $(function () {
-        $(".js-month-select-button").click(function () {
-            console.log("Clicked the button.");
-            $(".js-month-select").click(function () {
-                console.log("Clicked the month select");
-            });
-            $(".js-month-select").click();
-        });
-    });
   </script>
   <% if events_this_month? %>
     <%= calendar @date do |date| %>
