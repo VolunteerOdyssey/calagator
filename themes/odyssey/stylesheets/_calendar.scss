@@ -193,6 +193,21 @@
       background-color: #EDEEF0;
   }
 
+  .Event.hasAttachment::before {
+      position: absolute;
+      bottom: 0.8rem;
+      right: 1.6rem;
+
+      content: "";
+
+      display: block;
+
+      background-image: url("/assets/file-attachment.svg");
+
+      width: 0.618rem;
+      height: 0.733rem;
+  }
+
   .Event:nth-child(even),
   .Event:nth-child(even) .Event--time {
       background-color: #E5E6E6;
@@ -220,7 +235,7 @@
       float: right;
       background-color: #F8F8F8;
 
-      padding-right: 1.8rem;
+      padding-right: 2rem;
       padding-left: 0.8rem;
   }
 
