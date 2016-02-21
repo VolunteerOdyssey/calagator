@@ -119,8 +119,6 @@
 
   li {
     background-color: #FFFFFF;
-    border-bottom: 1px solid #207FC2;
-    // border-bottom: 1px solid #C5C2C2;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
     padding-left: 0.5em;
@@ -140,15 +138,24 @@
   } */
 
   .date {
-    background-color: #2a2a2a;
-    padding-left: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #2BA2F5;
+
+      background-color: #07202A;
+
+      padding-left: 1.333rem;
+      padding-right: 1.3333rem;
+
+      height: 1.7333rem;
+
+      padding-top: 0.1rem;
+  }
+
+  .today > .date {
+      background-color: #D13D94;
   }
 
   .date > span {
     font-family: $font-family-fira-sans;
+    font-weight: 400;
     color: #fff;
     font-size: 1em;
   }
