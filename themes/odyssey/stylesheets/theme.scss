@@ -43,10 +43,9 @@ html {
 	text-rendering: optimizeLegibility;
 	-moz-font-feature-settings: "kern=0";
 	-ms-font-feature-settings: "kern" 0;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-
 	-webkit-appearance: none;
+
+    font-size: 15px;
 }
 
 .wrapper {
