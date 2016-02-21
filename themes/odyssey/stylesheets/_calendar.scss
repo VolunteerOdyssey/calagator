@@ -253,6 +253,13 @@
       color: #5D5E5D;
       font-size: 0.618rem;
   }
+
+  .Event--title > a {
+      display: inline-block;
+      height: 3rem;
+      overflow: hidden;      
+  }
+
   /* End Events */
 
   td.no-events {

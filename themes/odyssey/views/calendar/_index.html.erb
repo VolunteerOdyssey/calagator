@@ -60,7 +60,7 @@
 
               <div class="Event--content">
                   <div class="Event--timeEnd">until <%= event.end_time.strftime("%I:%M %p") %></div>
-                  <div class="Event--title"><%= link_to event.title, event, :target => "_blank" %></div>
+                  <div class="Event--title js-event-title"><%= link_to event.title, event, :target => "_blank" %></div>
               </div>
             </li>
           <% end %>
