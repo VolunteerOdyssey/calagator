@@ -13,10 +13,10 @@
       <button class="month-select-button"><%= image_tag('select-arrow.svg') %></button>
       <select class="month-select js-month-select">
           <option value="January">January</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
+          <option value="2">February</option>
+          <option value="3">March</option>
+          <option value="4">April</option>
+          <option value="5">May</option>
           <option value="6">6</option>
           <option value="7">7</option>
           <option value="8">8</option>
@@ -45,19 +45,23 @@
         <span class="daynumber"><%= date.day %></span>
         <span class="dayofweek"><%= date.strftime('%A') %></span>
         <span class="yearnumber"><%= date.strftime('%Y') %></span>
+        <span class="isToday">
+            <% if date.to_date == Date.today %>(Today)<% end %>
+        </span>
       </div>
       <% if (events=events_for_date(date,@events)).any? %>
         <ul>
           <% events.first(4).each do |event| %>
-            <li>
-                <% if event.organization.present? %>
-                  <%=link_to(event.organization_title, event.organization, :class => 'organization-name', :target => "_blank") %><br />
-                <% end %>
-                <%= link_to event.title, event, :class => "event-title", :target => "_blank" %>
-                <div class='event-time'>
-                  <span class='event-start-time'><%= event.start_time.strftime("%I:%M %p") %></span> - <span class='event-end-time'><%= event.end_time.strftime("%I:%M %p") %>
-                </span>
-                </div>
+            <li class="Event">
+                <div class='Event--time'>
+                    <span class="Event--timeStart"><%= event.start_time.strftime("%I:%M") %></span>
+                    <span class="Event--timeStartMeridiem"><%= event.start_time.strftime("%p") %></span>
+              </div>
+
+              <div class="Event--content">
+                  <div class="Event--timeEnd">until <%= event.end_time.strftime("%I:%M %p") %></div>
+                  <div class="Event--title"><%= link_to event.title, event, :target => "_blank" %></div>
+              </div>
             </li>
           <% end %>
         </ul>

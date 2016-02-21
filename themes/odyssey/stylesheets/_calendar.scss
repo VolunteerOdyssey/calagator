@@ -119,9 +119,6 @@
 
   li {
     background-color: #FFFFFF;
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
-    padding-left: 0.5em;
   }
 
   li > a {
@@ -164,6 +161,11 @@
   .date .yearnumber {
       display: none;
   }
+
+  .date .isToday {
+      font-weight: 500;
+      color: #982A6B;
+  }
   /* td:not(.today) {
     display: none;
   } */
@@ -182,22 +184,76 @@
     font-size: 0.85em;
   }
 
-  .event-time {
-    display: block;
-    color: rgba(82, 82, 82, 1);
-    font-size: 0.85em;
-    font-family: $font-family-fira-sans;
+  /* Events */
+  .Event {
+      overflow: hidden;
+      position: relative;
+      border-bottom: 1px solid #D5D1D1;
+
+      background-color: #EDEEF0;
   }
 
-  .event-title {
-    font-size: 1em;
-    font-weight: 500;
-    color: #2A2A2A;
+  .Event:nth-child(even),
+  .Event:nth-child(even) .Event--time {
+      background-color: #E5E6E6;
   }
 
-  .daynumber {
-    font-weight: 500;
+  .Event:last-child {
+      border-bottom: none;
   }
+
+  .Event--time {
+      width: 20%;
+      float: left;
+
+      background-color: #EDEEF0;
+  }
+
+  .Event--time,
+  .Event--content {
+      padding-top: 0.618rem;
+      padding-bottom: 0.618rem;
+  }
+
+  .Event--content {
+      width: 80%;
+      float: right;
+      background-color: #F8F8F8;
+
+      padding-right: 0.8rem;
+      padding-left: 0.8rem;
+  }
+
+  .Event--time {
+
+      position: absolute;
+      top: 50%;
+
+      -webkit-transform: translate3d(0, -50%, 0);
+      transform: translate3d(0, -50%, 0);
+  }
+
+  .Event--timeStart,
+  .Event--timeStartMeridiem {
+      display: block;
+      text-align: center;
+  }
+
+  .Event--timeStart,
+  .Event--timeStartMeridiem,
+  .Event--title,
+  .Event--title > a,
+  .Event--timeEnd {
+      font-family: $font-family-fira-sans;
+      font-size: 1rem;
+      color: #19303A;
+  }
+
+  .Event--timeEnd {
+      color: #5D5E5D;
+      font-size: 0.618rem;
+  }
+  /* End Events */
 
   td.no-events {
     display: none;
