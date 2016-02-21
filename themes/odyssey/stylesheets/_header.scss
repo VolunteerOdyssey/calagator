@@ -198,12 +198,20 @@ header {
   }
 
   &#events_subnav{
-    li > a{
+    li a, span {
+      color: white;
+    }
+
+    li >  a, span {
       display: block;
+    }
+
+    li > span > a {
+      text-decoration: underline;
     }
   }
 
-  li > a {
+  li  a, span {
     font-size: 0.85em;
     font-family: $font-family-fira-sans;
     color: #fff;
