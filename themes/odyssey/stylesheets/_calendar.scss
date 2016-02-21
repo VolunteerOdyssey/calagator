@@ -43,19 +43,27 @@
 
   .month-name-container {
     display: block;
-    width: 33.333%;
-    float: left;
-    font-family: $font-family-fira-sans;
-    font-weight: 600;
-    text-align: center;
-    background-color: #3A8BC3;
-    border-bottom: 3px solid #207FC2;
-    font-size: 1em;
-    padding-top: 0.78em;
-    padding-bottom: 0.78em;
-    color: #fff;
+    width: 100%;
+    background-color: #EDEEF0;
     height: 50px;
   }
+
+  /* Month Name Selector */
+  .month-selector {
+  }
+
+  .month-select {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      min-height: 50px;
+      opacity: 0;
+      -webkit-appearance: none;
+      z-index: 10;
+  }
+  /* End Month Name Selector */
 
   .year { // year probably doesn't need to be displayed on mobile?
     display: none;
@@ -229,7 +237,9 @@
     th {
       display: block;
       float: left;
+
       width: 14.2857143%;
+      width: calc(100% / 7);
 
       border-right: 1px solid #1E6596;
     }
@@ -375,8 +385,7 @@
 
   .calendar {
 
-    max-width: 1000px;
-
+    width: 100%;
     position: relative;
 
     margin: 0 auto;

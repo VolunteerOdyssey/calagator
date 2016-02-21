@@ -1,24 +1,52 @@
 <div class='calendar'>
   <div class='month clearfix'>
     <!-- How do you make RoR spit out a link without generating an a tag? -->
+    <!--
     <%= link_to root_path(date: @date.prev_month), class: 'button prev' do %>
       <i class='chevron chevron'></i> Prev Month
     <% end %>
-    <div class='month-name-container'>
+    -->
+    <div class='month-name-container month-selector'>
       <span class='month-name'>
         <%= @date.strftime("%B"); %>
       </span>
-      <span class='year'>
-        <%= @date.strftime("%Y") %>
-      </span>
+      <button class="month-select-button"></button>
+      <select class="month-select js-month-select">
+          <option value="January">January</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+      </select>
     </div>
+
+    <!-- <span class='year'>
+      <%= @date.strftime("%Y") %>
+    </span> -->
+
+    <!--
     <%= link_to root_path(date: @date.next_month), class: 'button next' do %>
       Next Month <i class='chevron chevron--direction-right'></i>
     <% end %>
+    -->
   </div>
   <script>
     $(function() {
       $('td .no-events').parent('td').addClass('no-events');
+    });
+
+    // Just testing.
+    $(function () {
+        $(".js-month-select-button").click(function () {
+            console.log("Clicked the button.");
+            $(".js-month-select").click(function () {
+                console.log("Clicked the month select");
+            });
+            $(".js-month-select").click();
+        });
     });
   </script>
   <% if events_this_month? %>
