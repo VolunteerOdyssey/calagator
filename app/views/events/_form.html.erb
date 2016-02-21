@@ -81,16 +81,17 @@
 </div>
 <% end -%>
 
-<%= semantic_form_for(event, :html => {:id => 'event_form', :class => 'standard_form', :novalidate => 'novalidate'}) do |f| %>
+<%= semantic_form_for(event, :html => {:multipart => true, :id => 'event_form', :class => 'standard_form', :novalidate => 'novalidate'}) do |f| %>
   <%= f.inputs :name => "#{'Editing: ' unless event.new_record?} <em>#{event.title}</em>".html_safe do %>
     <% if event.has_recurrences? %>
       <li class='radio input' id='event_update_all'>
-        <%= label_tag :recurrence, "Recurrence", class: 'label' %>
-        <%= radio_button_tag :update_all, false, checked: true %>
-        <%= label_tag :update_all_false, "Update only this event" %>
-        <br/>
-        <%= radio_button_tag :update_all, true %>
-        <%= label_tag :update_all_true, "Update this event and all future occurrences" %>
+        <%= label_tag :update_all, "Recurrence", class: 'label' %>
+        <%= select_tag :update_all,
+              options_for_select([
+                ["Update all events in this series", true],
+                ["Update this event only", false]
+              ])
+        %>
       </li>
     <% else %>
       <%= hidden_field_tag :update_all, true %>
@@ -131,10 +132,29 @@
       <%= f.select_recurring :rrule, nil, allow_blank: true  %>
     </li>
     <%= f.input :url, as: :url, label: 'Website' %>
-    <%= f.input :minimum_age,
+    <div class="minimum_age">
+      <%= f.input :minimum_age,
                 as: :select,
                 include_blank: false,
-                collection: (1..65).to_a.unshift(['- all ages -', nil]) %>
+                prompt: "Please select",
+                collection: ['All ages',
+                             'All ages with parent',
+                             '21',
+                             '18',
+                             '17 with parent',
+                             '17',
+                             '16 with parent',
+                             '16',
+                             '15 with parent',
+                             '15',
+                             '14 with parent',
+                             '14',
+                             '13 with parent',
+                             '13',
+                             '12 with parent',
+                             '12',
+                             'Other - see description'] %>
+    </div>
     <%= f.input :signup_instructions,
                 as: :text,
                 hint: "If volunteers need to signup, describe how (email, phone, web, etc.).",
@@ -146,6 +166,8 @@
     <%= f.input :description,
                 :input_html => {:rows => 12, :class => 'medium-editable'},
                 :hint => "Describe the event. Things like what volunteers will do, what to bring, and who benefits from the work are good things to put here. You may format text using #{link_to("Markdown", "http://www.simpleeditions.com/59001/markdown-an-introduction", :target => "_blank")} and HTML".html_safe %>
+    <%= f.input :image %>
+    <%= f.input :image_cache, :as => :hidden %>
     <%= f.input :tag_list, :required => false,
                 :label => 'Tags',
                 :hint => "Tags are comma-separated keywords that make it easier to find your event and boost its position in searches. You can also use a tag like <code>plancast:plan=ABCD</code> to associate this with a particular <a href='http://plancast.com/'>Plancast</a> event.".html_safe %>

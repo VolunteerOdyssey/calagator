@@ -44,12 +44,14 @@
 
     <ul>
       <% @venues.each do |venue| %>
-        <li>
-          <%= link_to(venue.title, venue_url(venue)) %>
-          <% if venue.has_full_address? %>
-            <p class='detail'><%= venue.full_address %></p>
-          <% end %>
-        </li>
+        <%= link_to(venue_url(venue)) do %>
+          <li>
+            <%= venue.title %>
+            <% if venue.has_full_address? %>
+              <p class='detail'><%= venue.full_address %></p>
+            <% end %>
+          </li>
+        <% end %>
       <% end %>
     </ul>
   </div>
@@ -59,10 +61,14 @@
       <h3>Most Active</h3>
       <ul>
         <% @search.most_active_venues.each do |venue| %>
-          <li>
-            <%= link_to(venue.title, venue_url(venue)) %>
-            <p class='detail'><%= venue.events_count %> events</p>
-          </li>
+          <%= link_to(venue_url(venue)) do %>
+            <li>
+              <%= venue.title %>
+              <% if venue.events_count %>
+                <p class='detail'><%= venue.events_count %> events</p>
+              <% end %>
+            </li>
+          <% end %>
         <% end %>
       </ul>
     </div>
@@ -70,10 +76,12 @@
       <h3>Newest</h3>
       <ul>
         <% @search.newest_venues.each do |venue| %>
-          <li>
-            <%= link_to(venue.title, venue_url(venue)) %>
-            <p class='detail'>Added <%= time_ago_in_words(venue.created_at) %> ago</p>
-          </li>
+          <%= link_to(venue_url(venue)) do %>
+            <li>
+              <%= venue.title %>
+              <p class='detail'>Added <%= time_ago_in_words(venue.created_at) %> ago</p>
+            </li>
+          <% end %>
         <% end %>
       </ul>
     </div>
