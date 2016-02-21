@@ -51,7 +51,7 @@
       </div>
       <% if (events=events_for_date(date,@events)).any? %>
         <ul>
-          <% events.first(4).each do |event| %>
+          <% events.first(5).each do |event| %>
             <li class="Event">
                 <div class='Event--time'>
                     <span class="Event--timeStart"><%= event.start_time.strftime("%I:%M") %></span>
