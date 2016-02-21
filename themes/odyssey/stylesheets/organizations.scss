@@ -141,6 +141,20 @@
     margin-top: 1em;
 }
 
+#organization_description_input div.medium-editable, #event_description_input div.editable{
+  border: 2px inset;
+  display: inline-block;
+  height: 200px;
+  padding: 6px;
+  -webkit-appearance: textfield;
+  &:focus{
+    outline-color: rgb(59, 153, 252);
+    outline-width: 5px;
+    outline-offset: -2px;
+    outline-style: auto;
+  }
+}
+
 @media only screen and (min-width: 45em) {
 
     #organization_portal #most_active ul li,

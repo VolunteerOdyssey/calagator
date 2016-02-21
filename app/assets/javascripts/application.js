@@ -1,6 +1,7 @@
 //= require jquery
 //= require jquery_ujs
 
+
 $(document).ready(function(){
   // Shows hidden section when a link is clicked, and hides the link.
   //
