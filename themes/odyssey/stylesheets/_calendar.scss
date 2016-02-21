@@ -1,5 +1,5 @@
 .calendar {
-    
+
   .button:not(.button--call-to-action) {
     display: block;
     width: 33.333%;
@@ -153,6 +153,10 @@
     font-size: 1em;
   }
 
+  .date .monthname,
+  .date .yearnumber {
+      display: none;
+  }
   /* td:not(.today) {
     display: none;
   } */
