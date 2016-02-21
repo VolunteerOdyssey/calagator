@@ -2,6 +2,16 @@
 module ApplicationHelper
   include TimeRangeHelper
 
+  def calendar_months_for_select(current_date)
+    range = -5..5
+    select = []
+    range.each do |i|
+      date = current_date-(i.months)
+      select << [Date::MONTHNAMES[date.month], date]
+    end
+    select
+  end
+
   # Returns HTML string of an event or venue description for display in a view.
   def format_description(string)
     sanitize(auto_link(upgrade_br(markdown(simple_format(string)))))
