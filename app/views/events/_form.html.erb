@@ -88,10 +88,9 @@
         <%= label_tag :update_all, "Recurrence", class: 'label' %>
         <%= select_tag :update_all,
               options_for_select([
-                ["- Choose events to update... -", nil],
-                ["Update this event only", false],
-                ["Update all events in this series", true]]
-              )
+                ["Update all events in this series", true],
+                ["Update this event only", false]
+              ])
         %>
       </li>
     <% else %>
