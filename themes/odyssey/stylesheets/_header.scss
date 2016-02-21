@@ -197,8 +197,21 @@ header {
     border-right: none;
   }
 
+  &#events_subnav{
+    li a, span {
+      color: white;
+    }
 
-  li > a {
+    li >  a, span {
+      display: block;
+    }
+
+    li > span > a {
+      text-decoration: underline;
+    }
+  }
+
+  li  a, span {
     display: block;
     font-size: 0.85em;
     font-family: $font-family-fira-sans;
