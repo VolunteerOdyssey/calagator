@@ -1,8 +1,9 @@
 //= require tether.min
 //= require drop.min
 //= require tooltip.min
-
 //= require 'mailto'
+//= require medium-editor.min
+
 
 (function (window, document, undefined) {
     window.onload = function windowLoad() {
@@ -21,5 +22,22 @@
                 searchInput.blur();
             }
         });
+        var editor = new MediumEditor('.medium-editable', {
+          targetBlank: true,
+          extensions: {
+            'imageDragging': {}
+          },
+          toolbar: {
+            buttons: ['bold', 'italic', {
+              name: 'anchor',
+              contentDefault: '<b>Link</b>'
+            }],
+            align: 'left',
+            static: true,
+            relativeContainer: $('#organization_description_input, #event_description_input').prev()[0]
+          },
+          placeholder: false
+        })
+        $(".medium-editor-toolbar").insertAfter($('#organization_description_input, #event_description_input').prev())
     };
 }(window, document));
