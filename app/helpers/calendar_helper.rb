@@ -41,7 +41,7 @@ module CalendarHelper
     end
 
     def weeks
-      first = date.beginning_of_month.beginning_of_week(START_DAY)
+      first = date.beginning_of_week(START_DAY)
       last = date.end_of_month.end_of_week(START_DAY)
       (first..last).to_a.in_groups_of(7)
     end

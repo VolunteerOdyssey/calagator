@@ -4,8 +4,18 @@
 <div class='calendar'>
   <div class='month clearfix'>
     <!-- How do you make RoR spit out a link without generating an a tag? -->
-    <%= link_to root_path(date: @date.prev_month), class: 'button prev' do %>
-      <i class='chevron chevron'></i> Prev Month
+    <% if !events_this_month?(@date.prev_month) %>
+      <%= link_to root_path(date: @date.prev_month.beginning_of_month), class: 'button prev' do %>
+        <i class='chevron chevron'></i> Prev Month
+      <% end %>
+    <% elsif Date.today.month == @date.prev_month.month %>
+      <%= link_to root_path(date: Date.today), class: 'button prev' do %>
+        <i class='chevron chevron'></i> Prev Month
+      <% end %>
+    <% else %>
+      <%= link_to root_path(date: @date.prev_month), class: 'button prev' do %>
+        <i class='chevron chevron'></i> Prev Month
+      <% end %>
     <% end %>
     <div class='month-name-container'>
       <span class='month-name'>
@@ -15,8 +25,18 @@
         <%= @date.strftime("%Y") %>
       </span>
     </div>
-    <%= link_to root_path(date: @date.next_month), class: 'button next' do %>
-      Next Month <i class='chevron chevron--direction-right'></i>
+    <% if !events_this_month?(@date.next_month) %>
+      <%= link_to root_path(date: @date.next_month.beginning_of_month), class: 'button next' do %>
+        Next Month <i class='chevron chevron--direction-right'></i>
+      <% end %>
+    <% elsif Date.today.month == @date.next_month.month %>
+      <%= link_to root_path(date: Date.today), class: 'button next' do %>
+        Next Month <i class='chevron chevron--direction-right'></i>
+      <% end %>
+    <% else %>
+      <%= link_to root_path(date: @date.next_month), class: 'button next' do %>
+        Next Month <i class='chevron chevron--direction-right'></i>
+      <% end %>
     <% end %>
   </div>
   <script>
@@ -60,8 +80,12 @@
       <% end %>
     <% end %>
   <% else %>
-    <div class='no-events'>
-      <p>No events this month.</p>
-    </div>
+    <%= calendar @date do |date| %>
+      <div class='date'>
+        <span class="monthname"><%= date.strftime('%b') %></span>
+        <span class="daynumber"><%= date.day %></span>
+        <span class="yearnumber"><%= date.strftime('%Y') %></span>
+      </div>
+    <% end %>
   <% end %>
 </div>
