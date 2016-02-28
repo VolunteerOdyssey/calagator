@@ -328,9 +328,6 @@
   // turn the calendar back into a table.
   .calendar {
 
-    // Making the font-size back to 100% because I increased it to 110% earlier.
-    font-size: 90%; // Should I really be doing this?
-
     .month > .button {
       height: 50px;
     }
@@ -503,16 +500,10 @@
       padding: 0.5em;
     }
 
-    td.today {
-      background-color: #2BA2F5;
-    }
-
-    td.today > .date {
-      background-color: #2BA2F5;
-    }
-
+    td.today,
+    td.today > .date,
     td.today > ul {
-      background-color: #2BA2F5;
+        background-color: #D13D94;
     }
 
     td.today > ul li {
@@ -525,7 +516,7 @@
     }
 
     td.today .daynumber {
-      color: #15486C;
+      color: #fff;
     }
 
     td.today .view-more-events {

@@ -7,20 +7,18 @@
 
 
 $(function () {
-    var searchButton = document.querySelector('.js-search-box');
-    var searchForm = document.querySelector('.js-search-form');
-    var searchInput = document.querySelector('.js-search-input');
-    searchButton.addEventListener('click', function () {
-        searchButton.classList.toggle('is-open');
-        searchForm.classList.toggle('is-open');
 
-        if (searchForm.classList.contains('is-open')) {
-            setTimeout(function () {
-                searchInput.focus();
-            }, 250);
-        } else {
-            searchInput.blur();
-        }
+    $(".js-search-button").click(function () {
+        $(".js-search").toggleClass("is-hidden");
+    });
+
+    $(".Search--searchOption").click(function () {
+        var placeholderValue = $(this).attr("data-placeholder");
+        $(".js-search-input").attr("placeholder", placeholderValue);
+        $(".Search--searchOptionChecked input").removeAttr("checked");
+        $(".Search--searchOptionChecked").removeClass("Search--searchOptionChecked");
+        $(this).addClass("Search--searchOptionChecked");
+        $(this).children("input").prop("checked", "checked");
     });
 
     $(".js-event-title").dotdotdot({

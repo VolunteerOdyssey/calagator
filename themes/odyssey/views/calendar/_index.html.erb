@@ -6,7 +6,7 @@
       </span>
       <button class="month-select-button"><%= image_tag('select-arrow.svg') %></button>
       <%= form_tag root_url, method: :get do -%> %>
-          <%= select_tag 'date', options_for_select(calendar_months_for_select(@date), @date), {class: 'month-select js-month-select'} %>
+          <%= select_tag 'date', options_for_select(calendar_months_for_select(@date), @date) %>
       <% end %>
     </div>
 

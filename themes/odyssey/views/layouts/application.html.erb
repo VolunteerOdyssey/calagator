@@ -44,6 +44,50 @@
 
     <div class='wrapper'>
 
+        <div class="Search is-hidden js-search">
+
+            <div class="Search--close js-search-close"></div>
+            <form class="Search--form">
+                <div class="Search--searchField">
+                    <input class="js-search-input" type="text" placeholder="Find venues...">
+                </div>
+                <div class="Search--searchOptions">
+                    <div class="Search--searchOption" data-placeholder="Find events...">
+                        <input type="radio">
+                        <span class="Search--searchOptionText">Events</span>
+                    </div>
+                    <div class="Search--searchOption Search--searchOptionChecked" data-placeholder="Find venues...">
+                        <input type="radio" checked>
+                        <span class="Search--searchOptionText">Venues</span>
+                    </div>
+                    <div class="Search--searchOption" data-placeholder="Find organizations...">
+                        <input type="radio">
+                        <span class="Search--searchOptionText">Organizations</span>
+                    </div>
+                </div>
+
+                <div class="Search--moreInformation">
+                    <div class='tagline Search--tagline'>Stand out. Give back.</div>
+                    <div class='Search--donationButton donation-button-container mobile'>
+                      <%= link_to 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=LTC9GXPZBX5XY', class: 'button button--donate' do %>
+                      <div class='text-container'>Donate with Paypal</div>
+                      <div class='icon-container'>
+                          <i class='icon-cc-paypal'></i>
+                      </div>
+                      <% end %>
+                    </div>
+                    <div class='social-icons Search--searchIcons'>
+                        <ul>
+                            <li class='facebook'><a href="http://facebook.com/volunteerodyssey"><i class='icon-facebook'></i></a></li>
+                            <li class='twitter'><a href="http://www.twitter.com/volodyssey"><i class='icon-twitter'></i></a></li>
+                            <li class='linkedin'><a href="http://www.linkedin.com/company/volunteer-odyssey"><i class='icon-linkedin'></i></a></li>
+                            <li class='youtube'><a href="http://youtube.com/user/VolunteerOdyssey"><i class='icon-youtube'></i></a></li>
+                            <li class='googleplus'><a href="https://plus.google.com/b/113889158126284869703/"><i class='icon-googleplus'></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </form>
+        </div>
       <header class='clearfix'>
 
           <div class='header-container'>
@@ -86,7 +130,7 @@
           <% end %>
 
           <a href="#" class="js-search-button search-calendar">
-              <li class="js-search-button search-calendar">
+              <li>
                   <%= image_tag('search.svg') %>
               </li>
           </a>

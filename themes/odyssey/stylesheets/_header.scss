@@ -1,3 +1,58 @@
+.tagline {
+  font-family: $font-family-fira-sans;
+  font-weight: 200;
+  font-size: 1rem;
+  text-align: center;
+
+  color: #19759C;
+
+  margin-bottom: 2rem;
+}
+
+.social-icons {
+  display: none;
+  vertical-align: middle;
+}
+
+.social-icons ul {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.social-icons li {
+  display: inline-block;
+  margin: 0px 16px 9px 16px;
+}
+
+.social-icons .facebook:hover a i {
+  color: #3b5998;
+}
+
+.social-icons .twitter:hover a i {
+  color: #55acee;
+}
+
+.social-icons .linkedin:hover a i {
+  color: #0077b5;
+}
+
+.social-icons .youtube:hover a i {
+  color: #cd201f;
+}
+
+.social-icons .googleplus:hover a i {
+  color: #dd4b39;
+}
+
+.social-icons i {
+  color: #1F3B4D;
+  font-size: 16px;
+  display: block;
+  width: 16px;
+  height: 16px;
+  margin: 0 auto;
+}
+
 header {
 
   display: block; // eventually replace this with html-5shiv if we need support for older browsers. :/
@@ -31,61 +86,6 @@ header {
     max-width: 125px;
     margin: 0 auto;
     margin-top: 1rem;
-  }
-
-  .tagline {
-    font-family: $font-family-fira-sans;
-    font-weight: 200;
-    font-size: 1rem;
-    text-align: center;
-
-    color: #19759C;
-
-    margin-bottom: 2rem;
-  }
-
-  .social-icons {
-    display: none;
-    vertical-align: middle;
-  }
-
-  .social-icons ul {
-    display: inline-block;
-    vertical-align: middle;
-  }
-
-  .social-icons li {
-    display: inline-block;
-    margin: 0px 16px 9px 16px;
-  }
-
-  .social-icons .facebook:hover a i {
-    color: #3b5998;
-  }
-
-  .social-icons .twitter:hover a i {
-    color: #55acee;
-  }
-
-  .social-icons .linkedin:hover a i {
-    color: #0077b5;
-  }
-
-  .social-icons .youtube:hover a i {
-    color: #cd201f;
-  }
-
-  .social-icons .googleplus:hover a i {
-    color: #dd4b39;
-  }
-
-  .social-icons i {
-    color: #1F3B4D;
-    font-size: 16px;
-    display: block;
-    width: 16px;
-    height: 16px;
-    margin: 0 auto;
   }
 
   .donation-button-container .button.button--donate {
