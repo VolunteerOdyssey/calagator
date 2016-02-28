@@ -6,7 +6,10 @@ nav {
 
 	margin-bottom: 1.333rem;
 
+	text-align: center;
+	
 	ul {
+		display: inline-block;
 		border-left: none;
 		border-right: none;
 
@@ -27,7 +30,7 @@ nav {
 
 		text-decoration: underline;
 
-		padding-right: 1.666rem;
+		padding-right: 1.333rem;
 	}
 
 	ul.app-menu > a:first-child {

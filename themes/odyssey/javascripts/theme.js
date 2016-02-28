@@ -21,6 +21,10 @@ $(function () {
         $(this).children("input").prop("checked", "checked");
     });
 
+    $(".js-search-close").click(function () {
+        $(".js-search").toggleClass("is-hidden");
+    });
+
     $(".js-event-title").dotdotdot({
         watch: true
     });
