@@ -1,39 +1,15 @@
 <div class='calendar'>
   <div class='month clearfix'>
-    <!-- How do you make RoR spit out a link without generating an a tag? -->
-    <!--
-    <%= link_to root_path(date: @date.prev_month), class: 'button prev' do %>
-      <i class='chevron chevron'></i> Prev Month
-    <% end %>
-    -->
     <div class='month-name-container month-selector'>
       <span class='month-name'>
         <%= @date.strftime("%B"); %>
       </span>
       <button class="month-select-button"><%= image_tag('select-arrow.svg') %></button>
-      <form>
-          <select class="month-select js-month-select">
-              <option value="January">January</option>
-              <option value="2">February</option>
-              <option value="3">March</option>
-              <option value="4">April</option>
-              <option value="5">May</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-          </select>
-      </form>
+      <%= form_tag root_url, method: :get do -%> %>
+          <%= select_tag 'date', options_for_select(calendar_months_for_select(@date), @date), {class: 'month-select js-month-select'} %>
+      <% end %>
     </div>
 
-    <!-- <span class='year'>
-      <%= @date.strftime("%Y") %>
-    </span> -->
-
-    <!--
-    <%= link_to root_path(date: @date.next_month), class: 'button next' do %>
-      Next Month <i class='chevron chevron--direction-right'></i>
-    <% end %>
-    -->
   </div>
   <script>
     $(function() {
