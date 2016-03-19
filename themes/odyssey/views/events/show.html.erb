@@ -17,7 +17,7 @@
     <%= javascript_include_tag 'analytics_events' %>
 <% end %>
 
-<% if current_admin || (current_organization and @event.organitzation == current_organization) %>
+<% if current_admin || (current_organization and @event.organization == current_organization) %>
     <div id="events_subnav" class="subnav">
       <div class='container'>
         <ul class="clearfix">
