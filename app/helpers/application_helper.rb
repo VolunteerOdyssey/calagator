@@ -7,7 +7,7 @@ module ApplicationHelper
     select = []
     range.each do |i|
       date = current_date-(i.months)
-      select << [Date::MONTHNAMES[date.month], date]
+      select << ["#{Date::MONTHNAMES[date.month]} #{date.year}", date]
     end
     select
   end
