@@ -37,8 +37,8 @@
     margin-left: 0.25em;
   }
 
-  .month-name-container {
-
+  /* CSS Intention: Make sure the select is working on mobile */
+  .month {
       position: relative;
 
       padding-top: 0.618rem; // ( (15 / 1.618) / 15)
@@ -47,12 +47,37 @@
 
       height: 2.617924rem; // 15 * (1.618 * 1.618)
 
-      display: block;
-      width: 100%;
       background-color: #EDEEF0;
 
-
   }
+
+  .month-name-container,
+  .month > form,
+  .month > form > select {
+      display: block;
+      width: 100%;
+  }
+
+  .month > form,
+  .month > form > select {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      height: 2.617924rem; // 15 * (1.618 * 1.618)
+
+      min-height: 2.617924rem;
+  }
+
+  .month > form {
+      opacity: 0;
+      -webkit-appearance: none;
+
+      z-index: 10;
+  }
+
+
+  /* End CSS Intention: Make sure the select is working on mobile. */
 
   .month-name {
       font-family: $font-family-fira-sans;
@@ -61,29 +86,6 @@
       line-height: 1;
 
       color: #19303A;
-  }
-
-  .month-name-container > form {
-      opacity: 0;
-      -webkit-appearance: none;
-  }
-
-  /* Month Name Selector */
-  .month-selector {
-
-  }
-
-  .month-select {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-
-      height: 2.617924rem; // 15 * (1.618 * 1.618)
-
-      opacity: 0;
-      -webkit-appearance: none;
-      z-index: 10;
   }
 
   .month-select-button {

@@ -102,4 +102,10 @@ $(document).ready(function () {
 		$element.text( moment($element.text()).format("LT") );
 	}); */
 
+	/* Javascript Intention: When the value of the select changes for the month, submit the form with Javascript. */
+	$(".js-monthselect-form > select").change(function (e) {
+		$(this).parent().submit();
+	});
+	/* End Javascript Intention */
+
 });
