@@ -47,22 +47,22 @@
         <div class="Search is-hidden js-search">
 
             <div class="Search--close js-search-close"></div>
-            <form class="Search--form js-search-form" action="">
+            <form class="Search--form js-search-form" action="<%= search_form_action %>">
                 <div class="Search--searchField">
                     <input class="Search--searchFieldInput js-search-input" name="query" type="text" placeholder="Find venues...">
                     <input type="submit" value="" class="Search--submitForm">
                 </div>
                 <div class="Search--searchOptions">
-                    <div class="Search--searchOption" data-action="/events" data-placeholder="Find events...">
-                        <input type="radio">
+                    <div class="Search--searchOption <% if search_form_action.include? 'events' %>Search--searchOptionChecked<% end %>" data-action="/events" data-placeholder="Find events...">
+                        <input type="radio" <% if search_form_action.include? 'events' %>checked<% end %>>
                         <span class="Search--searchOptionText">Events</span>
                     </div>
-                    <div class="Search--searchOption Search--searchOptionChecked" data-action="/venues" data-placeholder="Find venues...">
-                        <input type="radio" checked>
+                    <div class="Search--searchOption <% if search_form_action.include? 'venues' %>Search--searchOptionChecked<% end %>" data-action="/venues" data-placeholder="Find venues...">
+                        <input type="radio" <% if search_form_action.include? 'venues' %>checked<% end %>>
                         <span class="Search--searchOptionText">Venues</span>
                     </div>
-                    <div class="Search--searchOption" data-action="/organizations" data-placeholder="Find organizations...">
-                        <input type="radio">
+                    <div class="Search--searchOption <% if search_form_action.include? 'organizations' %>Search--searchOptionChecked<% end %>" data-action="/organizations" data-placeholder="Find organizations...">
+                        <input type="radio"<% if search_form_action.include? 'organizations' %>checked<% end %>>
                         <span class="Search--searchOptionText">Organizations</span>
                     </div>
                 </div>

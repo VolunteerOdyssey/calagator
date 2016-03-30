@@ -2,6 +2,15 @@
 module ApplicationHelper
   include TimeRangeHelper
 
+  def search_form_action
+    @search_form_action ||= "/#{request.path.split('/').reject(&:empty?)[0]}"
+    if @search_form_action == '/'
+      @search_form_action = '/events'
+    end
+
+    @search_form_action
+  end
+
   def calendar_months_for_select(current_date)
     range = -5..5
     select = []
