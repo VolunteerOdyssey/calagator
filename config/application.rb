@@ -52,6 +52,7 @@ module Calagator
       "analytics.js",
       "analytics_events.js",
       "calendar.js",
+      "check_event_image_size.js",
       "recurrence.js"
     ]
 
