@@ -44,7 +44,7 @@ module CalendarHelper
       first = date.beginning_of_week(START_DAY)
       last = [
         date.end_of_month.end_of_week(START_DAY),
-        first.advance(weeks: 4).end_of_week(START_DAY)
+        first.advance(weeks: 3).end_of_week(START_DAY)
       ].max
       (first..last).to_a.in_groups_of(7)
     end
