@@ -47,20 +47,20 @@
         <div class="Search is-hidden js-search">
 
             <div class="Search--close js-search-close"></div>
-            <form class="Search--form">
+            <form class="Search--form js-search-form" action="">
                 <div class="Search--searchField">
-                    <input class="js-search-input" type="text" placeholder="Find venues...">
+                    <input name="query" class="js-search-input" type="text" placeholder="Find venues...">
                 </div>
                 <div class="Search--searchOptions">
-                    <div class="Search--searchOption" data-placeholder="Find events...">
+                    <div class="Search--searchOption" data-action="/events" data-placeholder="Find events...">
                         <input type="radio">
                         <span class="Search--searchOptionText">Events</span>
                     </div>
-                    <div class="Search--searchOption Search--searchOptionChecked" data-placeholder="Find venues...">
+                    <div class="Search--searchOption Search--searchOptionChecked" data-action="/venues" data-placeholder="Find venues...">
                         <input type="radio" checked>
                         <span class="Search--searchOptionText">Venues</span>
                     </div>
-                    <div class="Search--searchOption" data-placeholder="Find organizations...">
+                    <div class="Search--searchOption" data-action="/organizations" data-placeholder="Find organizations...">
                         <input type="radio">
                         <span class="Search--searchOptionText">Organizations</span>
                     </div>
