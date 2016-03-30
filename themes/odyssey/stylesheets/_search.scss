@@ -51,17 +51,44 @@
     padding-right: 1.33rem;
 }
 
-.Search--searchField > input {
+.Search--searchField {
     background: none;
     border: none;
     border-bottom: 1px solid #fff;
     width: 100%;
+    min-height: 44px;
+}
+
+.Search--searchFieldInput {
+    width: 90%;
+    min-height: 44px;
+
+    background: none;
+    border: none;
+
     font-size: 1rem;
     color: #fff;
 
+}
+
+.Search--submitForm {
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    background: none;
+    border: none;
+
+    display: inline-block;
+
+    position: absolute;
+
     background-image: url("/assets/search-white.svg");
     background-repeat: no-repeat;
-    background-position: 96% 0;
+    background-position: 50% 50%;
+
+    width: 44px;
+    height: 44px;
+
 }
 
 .tagline.Search--tagline {
