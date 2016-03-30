@@ -81,9 +81,7 @@ $(document).ready(function () {
 	}
 
 	var tallestHeight = findTallestTd();
-
-	console.log(findTallestTd());
-
+	
 	if (window.matchMedia("(min-width: 850px)").matches) {
 		$('.calendar td').each(function () {
 			$(this).height(tallestHeight + 'px');
