@@ -1,33 +1,33 @@
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
     font-family: $font-family-fira-sans;
     font-weight: 200;
-    color: #fff;
+    color: #C9BFCE;
 }
 
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
     font-family: $font-family-fira-sans;
     font-weight: 200;
-   color: #fff;
+   color: #C9BFCE;
    opacity:  1;
 }
 
 ::-moz-placeholder { /* Mozilla Firefox 19+ */
     font-family: $font-family-fira-sans;
     font-weight: 200;
-   color: #fff;
+   color: #C9BFCE;
    opacity:  1;
 }
 
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
     font-family: $font-family-fira-sans;
     font-weight: 200;
-   color: #fff;
+   color: #C9BFCE;
 }
 
 :placeholder-shown { /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
     font-family: $font-family-fira-sans;
     font-weight: 200;
-  color: #fff;
+  color: #C9BFCE;
 }
 
 .Search {
