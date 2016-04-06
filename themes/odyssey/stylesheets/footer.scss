@@ -1,5 +1,5 @@
 footer {
-  background: $vo-blue;
+  background: #ededed;
 }
 
 footer .footer-container {
@@ -19,6 +19,14 @@ footer .footer-container p {
 footer .footer-container p:last-child {
     text-align: right;
     float: right;
+    text-decoration: underline;
+}
+
+footer .footer-container p a {
+    font-size: 1em;
+    font-family: "Fira Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    color: #19303A;
 }
 
 @media only screen and (min-width: 75.625em) {
