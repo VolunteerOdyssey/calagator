@@ -12,11 +12,19 @@ $(function () {
     $(".js-search-button").click(function (e) {
         e.preventDefault();
         $(".js-search").toggleClass("is-hidden");
+        setTimeout(function () {
+            $(".js-search-input").focus();
+        }, 100);
     });
 
     $(".js-search-close").click(function (e) {
         e.preventDefault();
         $(".js-search").toggleClass("is-hidden");
+
+        setTimeout(function () {
+            $(".js-search-input").blur();
+        });
+
     });
 
     function replaceSearchPlaceholderValue($field) {
