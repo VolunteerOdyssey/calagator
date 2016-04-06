@@ -1,21 +1,6 @@
 <%= content_for :title, "Organizations" %>
 
-<% tabindex_on '#search_field' %>
-
 <div id="organizations_index">
-<div id='organizations_search'>
-  <%= form_tag organizations_path, :method => 'get' do %>
-    <div class='keywords'>
-      <%= label_tag :query, "Find an organization:" %>
-      <%= text_field_tag :query, @search.query %>
-    </div>
-
-    <div class='submit'>
-      <%= submit_tag "Search", class: 'button button--google-maps' %>
-    </div>
-  <% end %>
-</div>
-
 <% if @search.results? %>
   <div id='organizations_search_results'>
     <div class='list_description'>
