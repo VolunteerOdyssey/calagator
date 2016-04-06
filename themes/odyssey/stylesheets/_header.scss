@@ -220,6 +220,26 @@ header {
   }
 }
 
+.subnav.subnav-admin {
+    background-color: #3A8BC3;
+}
+
+.subnav.subnav-admin li a {
+    display: inline-block;
+}
+
+.subnav.subnav-admin li:first-child {
+    border-bottom: 3px solid #1E6596;
+}
+
+.subnav.subnav-admin li {
+    border-right: 1px solid #1E6596;
+}
+
+.subnav.subnav-admin li:last-child {
+    border-right: none;
+}
+
 .view-mode-buttons,
 .search-box-container {
   display: none;

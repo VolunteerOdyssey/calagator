@@ -16,7 +16,7 @@
 <% end %>
 
 <% if current_admin || (current_organization and @event.organitzation == current_organization) %>
-    <div id="events_subnav" class="subnav">
+    <div id="events_subnav" class="subnav subnav-admin">
       <div class='container'>
         <ul class="clearfix">
           <li><%= link_to 'Edit event', edit_event_url(@event) %>
