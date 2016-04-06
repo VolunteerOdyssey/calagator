@@ -19,9 +19,9 @@ $(function () {
         $(".js-search").toggleClass("is-hidden");
     });
 
-    $(".Search--searchOption").click(function () {
-        var placeholderValue = $(this).attr("data-placeholder"),
-            actionValue = $(this).attr("data-action");
+    function replaceSearchPlaceholderValue($field) {
+        var placeholderValue = $field.attr("data-placeholder"),
+            actionValue = $field.attr("data-action");
 
         $(".js-search-input").attr("placeholder", placeholderValue);
         $(".js-search-form").attr("action", actionValue);
@@ -29,10 +29,16 @@ $(function () {
         $(".Search--searchOptionChecked input").removeAttr("checked");
         $(".Search--searchOptionChecked").removeClass("Search--searchOptionChecked");
 
-        $(this).addClass("Search--searchOptionChecked");
-        $(this).children("input").prop("checked", "checked");
+        $field.addClass("Search--searchOptionChecked");
+        $field.children("input").prop("checked", "checked");
+    }
+
+    $(".Search--searchOption").click(function () {
+        replaceSearchPlaceholderValue($(this));
     });
     /* End Search Form */
+
+    replaceSearchPlaceholderValue($(".Search--searchOptionChecked"));
 
     $(".js-event-title").dotdotdot({
         watch: true
