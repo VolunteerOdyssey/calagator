@@ -52,4 +52,23 @@ $(function () {
         watch: true
     });
 
+    function findTallestTr() {
+		var height = 0;
+
+		$('.event_table tr').each(function () {
+			if ( $(this).height() > height) {
+				height = $(this).height();
+			}
+		});
+
+		return height;
+	}
+
+	var tallestHeight = findTallestTr();
+
+	if (window.matchMedia("(min-width: 720px)").matches) {
+		$('.event_table tr').not(':first').each(function () {
+			$(this).height(tallestHeight + 'px');
+		});
+	}
 });
