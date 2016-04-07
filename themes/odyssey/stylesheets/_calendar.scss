@@ -129,6 +129,7 @@
   }
 
   li > a {
+    display: block;
     font-family: $font-family-fira-sans;
     font-size: 1em;
   }
@@ -177,9 +178,9 @@
     display: none;
   } */
 
-  ul > a {
-    display: none;
-  }
+  //ul > a {
+  //  display: none;
+  //}
 
   ul .view-more-events {
     display: inline;

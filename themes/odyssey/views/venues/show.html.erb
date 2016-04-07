@@ -1,4 +1,9 @@
-<%= content_for :title, @venue.title %>
+<% if @venue.title.length < 32 %>
+  <%= content_for :title, "Volunteer Opportunities at #{@venue.title}" %>
+<% else %>
+  <%= content_for :title, "Volunteering at #{@venue.title}" %>
+<% end %>
+<%= content_for :description, "Learn more about our volunteer opportunities at #{@venue.title}. We will connect you with volunteering in Memphis TN." %>
 
 <% content_for :discovery_insert do %>
   <link rel="alternate" type="application/x-wiki" title="Edit this page" href="<%= edit_venue_url(@venue) %>" />

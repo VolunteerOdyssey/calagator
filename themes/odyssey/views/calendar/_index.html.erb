@@ -1,3 +1,6 @@
+<%= content_for :title, "Memphis Volunteer Calendar" %>
+<%= content_for :description, "View all of our available volunteer opportunities in Memphis TN. We partner with many organizations and venues in the city." %>
+
 <div class='calendar'>
   <div class='month clearfix'>
     <div class='month-name-container month-selector'>
@@ -6,7 +9,6 @@
       </span>
       <button class="month-select-button"><%= image_tag('select-arrow.svg') %></button>
     </div>
-
     <%= form_tag root_url, method: :get, :class => 'month-select-form js-monthselect-form' do -%> %>
         <%= select_tag 'date', options_for_select(calendar_months_for_select(@date), @date) %>
     <% end %>
@@ -57,8 +59,12 @@
       <% end %>
     <% end %>
   <% else %>
-    <div class='no-events'>
-      <p>No events this month.</p>
-    </div>
+    <%= calendar @date do |date| %>
+      <div class='date'>
+        <span class="monthname"><%= date.strftime('%b') %></span>
+        <span class="daynumber"><%= date.day %></span>
+        <span class="yearnumber"><%= date.strftime('%Y') %></span>
+      </div>
+    <% end %>
   <% end %>
 </div>

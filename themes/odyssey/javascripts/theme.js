@@ -2,8 +2,9 @@
 //= require drop.min
 //= require tooltip.min
 //= require jquery.dotdotdot.min
-
 //= require 'mailto'
+//= require medium-editor.min
+
 
 
 $(function () {
@@ -71,4 +72,22 @@ $(function () {
 			$(this).height(tallestHeight + 'px');
 		});
 	}
+        var editor = new MediumEditor('.medium-editable', {
+          targetBlank: true,
+          extensions: {
+            'imageDragging': {}
+          },
+          toolbar: {
+            buttons: ['bold', 'italic', {
+              name: 'anchor',
+              contentDefault: '<b>Link</b>'
+            }],
+            align: 'left',
+            static: true,
+            relativeContainer: $('#organization_description_input, #event_description_input').prev()[0]
+          },
+          placeholder: false
+        })
+        $(".medium-editor-toolbar").insertAfter($('#organization_description_input, #event_description_input').prev())
+    };
 });

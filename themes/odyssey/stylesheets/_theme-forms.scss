@@ -101,7 +101,8 @@ form.standard_form {
 .standard_form input[type="email"],
 .standard_form input[type="tel"],
 .standard_form textarea,
-.standard_form .text textarea
+.standard_form .text textarea,
+.standard_form div.medium-editable
 {
   width: 370px;
 }

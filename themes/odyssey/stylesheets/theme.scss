@@ -20,6 +20,9 @@
 @import 'layout';
 @import 'theme-default';
 @import 'theme-forms';
+@import 'medium-editor.min';
+@import 'medium-editor-bootstrap.min';
+
 
 @import 'icons';
 
@@ -135,6 +138,9 @@ body.organizations_new {
 
 body.sources_new { // /sources/new
 	// @import 'new-source';
+  main #source_form fieldset.inputs legend{
+    margin: auto;
+  }
 }
 
 body.site_index {
@@ -163,4 +169,14 @@ body.venues_show { // individual venues page
 
 .tooltip-element.tooltip-theme-arrows .tooltip-content {
     font-family: $font-family-fira-sans;
+}
+
+div.medium-editable{
+  background-color: white;
+}
+ #new_organization_form .medium-editor-toolbar, #new_event_form .medium-editor-toolbar{
+  display: inline-block;
+  position: relative;
+  visibility: visible;
+  width: auto;
 }

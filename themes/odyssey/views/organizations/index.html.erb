@@ -1,4 +1,5 @@
-<%= content_for :title, "Organizations" %>
+<%= content_for :title, "Organizations to Volunteer with in Memphis" %>
+<%= content_for :description, "Volunteer Odyssey offers numerous organizations to volunteer with in Memphis TN. View all of the current organizations that we partner with." %>
 
 <div id="organizations_index">
 <% if @search.results? %>
@@ -40,7 +41,9 @@
           <%= link_to(organization_url(organization)) do %>
             <li>
               <%= organization.title %>
-              <p class='detail'><%= organization.events_count %> events</p>
+              <% if organization.events_count %>
+                <p class='detail'><%= organization.events_count %> events</p>
+              <% end %>
             </li>
           <% end %>
         <% end %>

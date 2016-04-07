@@ -1,4 +1,9 @@
-<%= content_for :title, @organization.title %>
+<% if @organization.title.length < 32 %>
+  <%= content_for :title, "Volunteer Opportunities with #{@organization.title}" %>
+<% else %>
+  <%= content_for :title, "Volunteering with #{@organization.title}" %>
+<% end %>
+<%= content_for :description, "Learn more about our volunteer opportunities with #{@organization.title}. We will connect you with volunteering in Memphis TN." %>
 
 <% tabindex_on '#search_field' %>
 

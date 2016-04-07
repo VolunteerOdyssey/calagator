@@ -214,6 +214,7 @@ header {
   }
 
   li  a, span {
+    display: block;
     font-size: 0.85em;
     font-family: $font-family-fira-sans;
     color: #fff;

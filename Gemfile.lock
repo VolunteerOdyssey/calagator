@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/VolunteerOdyssey/recurring_select.git
-  revision: c47cde399325da51ae3996712f1ff7e7d3e97fbe
+  revision: 2a8df2ed4db36affd34e7de38d212debb118bd12
   branch: vo
   specs:
     recurring_select (1.3.1)
