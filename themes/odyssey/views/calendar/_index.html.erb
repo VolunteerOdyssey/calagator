@@ -33,15 +33,17 @@
           <% events.first(5).each do |event| %>
             <!-- <li class="Event <%= event.image.url.blank? ? '' : 'hasAttachment' %>"> -->
             <li class="Event hasAttachment">
+              <%= link_to event, :target => '_blank' do %>
                 <div class='Event--time'>
                     <span class="Event--timeStart"><%= event.start_time.strftime("%I:%M") %></span>
                     <span class="Event--timeStartMeridiem"><%= event.start_time.strftime("%p") %></span>
-              </div>
+                </div>
 
-              <div class="Event--content">
-                  <div class="Event--timeEnd">until <%= event.end_time.strftime("%I:%M %p") %></div>
-                  <div class="Event--title js-event-title"><%= link_to event.title, event, :target => "_blank" %></div>
-              </div>
+                <div class="Event--content">
+                    <div class="Event--timeEnd">until <%= event.end_time.strftime("%I:%M %p") %></div>
+                    <div class="Event--title js-event-title"><%= event.title %></div>
+                </div>
+              <% end %>
             </li>
           <% end %>
         </ul>
