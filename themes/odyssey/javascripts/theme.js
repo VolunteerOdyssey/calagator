@@ -24,6 +24,7 @@
         });
         var editor = new MediumEditor('.medium-editable', {
           targetBlank: true,
+          placeholder: false,
           extensions: {
             'imageDragging': {}
           },
@@ -31,13 +32,8 @@
             buttons: ['bold', 'italic', {
               name: 'anchor',
               contentDefault: '<b>Link</b>'
-            }],
-            align: 'left',
-            static: true,
-            relativeContainer: $('#organization_description_input, #event_description_input').prev()[0]
-          },
-          placeholder: false
-        })
-        $(".medium-editor-toolbar").insertAfter($('#organization_description_input, #event_description_input').prev())
+            }]
+          }
+        });
     };
 }(window, document));

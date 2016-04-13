@@ -23,7 +23,6 @@
 @import 'medium-editor.min';
 @import 'medium-editor-bootstrap.min';
 
-
 @import 'icons';
 
 .clearfix:before,
@@ -146,7 +145,10 @@ body.venues_show { // individual venues page
 }
 
 div.medium-editable{
+  display: inline-block;
+  min-height: 80px;
   background-color: white;
+  clear: both;
 }
  #new_organization_form .medium-editor-toolbar, #new_event_form .medium-editor-toolbar{
   display: inline-block;
