@@ -15,6 +15,7 @@ module Calagator
 
     config.autoload_paths += %W(
       #{config.root}/app/mixins
+      #{config.root}/app/middleware
       #{config.root}/app/observers
       #{config.root}/lib
     )
@@ -65,6 +66,10 @@ module Calagator
       g.body{ |ex| ex.message.to_s.encode('UTF-8', {:invalid => :replace, :undef => :replace, :replace => '?'}) }
       g.ensure(true) { |ex| env['rack.errors'].write(ex.message.to_s.encode('UTF-8', {:invalid => :replace, :undef => :replace, :replace => '?'})) }
     end
+
+    # Setup backend google analytics tracking under a different property to
+    # prevent duplicate events
+    config.middleware.use "Pageview", 'UA-59976172-2'
 
     #---[ Secrets and settings ]--------------------------------------------
 

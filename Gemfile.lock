@@ -277,6 +277,7 @@ GEM
       colorize (>= 0.7.0)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
+    staccato (0.4.7)
     sunspot (2.1.1)
       pr_geohash (~> 1.0)
       rsolr (~> 1.0.7)
@@ -371,6 +372,7 @@ DEPENDENCIES
   spring (= 1.1.3)
   spring-commands-rspec (= 1.0.2)
   sqlite3
+  staccato
   sunspot_rails (= 2.1.1)
   sunspot_solr (= 2.1.1)
   therubyracer
@@ -379,3 +381,6 @@ DEPENDENCIES
   utf8-cleaner (~> 0.0.6)
   webmock (~> 1.20)
   will_paginate (= 3.0.5)
+
+BUNDLED WITH
+   1.11.2

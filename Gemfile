@@ -49,6 +49,7 @@ gem 'lucene_query', '0.1'
 gem 'carrierwave', '~> 0.10.0'
 gem 'rmagick'
 gem 'recurring_select', github: "VolunteerOdyssey/recurring_select", branch: "vo"
+gem 'staccato'
 
 # Some dependencies are only needed for test and development environments. On
 # production servers, you can skip their installation by running:
