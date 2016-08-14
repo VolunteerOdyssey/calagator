@@ -7,7 +7,9 @@ class Pageview
   end
 
   def call(env)
-    session_uuid = get_session_uuid(env)
+    # Find or create a new session_uuid
+    existing_session_uuid = get_session_uuid(env)
+    session_uuid = existing_session_uuid || SecureRandom.uuid
 
     # Setup a tracker instance, useful for tracking other events inside the app
     env['TRACKER'] = tracker = Staccato.tracker(tracking_id, session_uuid, ssl: true)
@@ -24,8 +26,12 @@ class Pageview
 
     status, headers, body = app.call(env)
 
-    headers = set_session_uuid(session_uuid, headers)
+    # Store the session id in the cookie
+    if existing_session_uuid.blank?
+      headers = set_session_uuid(session_uuid, headers)
+    end
 
+    # Report successes to GA
     if (200..299).cover?(status.to_i)
       pageview.track! rescue nil
     end
@@ -36,19 +42,18 @@ class Pageview
   private
 
   def get_session_uuid(env)
-    get_cookies(env).fetch('_odyssey_session_uuid', SecureRandom.uuid)
-  end
-
-  def get_cookies(env)
-    return {} unless env['HTTP_COOKIE']
-    Rack::Utils.parse_query(env['HTTP_COOKIE'], ';,')
-               .each_with_object({}) do |(k,v), hash|
-      hash[k] = Array === v ? v.first : v
-    end
+    return nil unless env['HTTP_COOKIE']
+    cookie = Rack::Utils.parse_query(env['HTTP_COOKIE'], ';,')['_odyssey_session_uuid']
+    cookie = (cookie.is_a?(Array) ? cookie.first : cookie)
+    cookie.is_a?(Hash) ? cookie[:value] : cookie
   end
 
   def set_session_uuid(uuid, headers)
-    Rack::Utils.set_cookie_header!(headers, '_odyssey_session_uuid', uuid)
+    Rack::Utils.set_cookie_header!(headers, '_odyssey_session_uuid',
+      value:   uuid,
+      path:    "/",
+      expires: 2.years.from_now
+    )
     headers
   end
 end
